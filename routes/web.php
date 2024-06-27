@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,20 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('LandingPage');
+});
+
+Route::get('/test-page', function () {
+    return Inertia::render('TestPage');
+});
+
+Route::get('/send-event', function (Request $req) {
+    $text = $req->text;
+    broadcast(new \App\Events\HelloEvent($text, 1));
+});
+
+Route::get('/send-event-2', function (Request $req) {
+    $text = $req->text;
+    broadcast(new \App\Events\HelloEvent($text, 2));
 });
 
 Route::get('/dashboard', function () {
