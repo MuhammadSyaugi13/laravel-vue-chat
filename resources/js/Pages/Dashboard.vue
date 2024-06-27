@@ -4,19 +4,34 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <Head title="Dashboard" />
-
-    <AuthenticatedLayout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                </div>
+    <div class="flex h-screen overflow-hidden">
+        <!-- sidebar -->
+        <div class="w-1/4 bg-red-400">
+            <div class="py-4 bg-green-900">Your Profile</div>
+            <div class="bg-yellow-900 h-full overflow-scroll">
+                <div class="bg-lime-200 h-[290px]">test1</div>
+                <div class="bg-lime-300 h-[290px]">test2</div>
+                <div class="bg-lime-400 h-[290px]">test3</div>
+                <div class="bg-lime-500 h-[290px]">test4</div>
+                <div class="bg-lime-600 h-[290px]">test5</div>
+                <div class="tes">test</div>
             </div>
         </div>
-    </AuthenticatedLayout>
+        <!-- ./ sidebar -->
+
+        <!-- content -->
+         <div class="w-3/4 bg-blue-200">
+            <div class="bg-violet-300 mx-4">sda</div>
+            <div class="h-full bg-red-300 justify-center overflow-y-scroll">
+                <div class="bg-lime-200 h-[290px]">test1</div>
+                <div class="bg-lime-300 h-[290px]">test2</div>
+                <div class="bg-lime-400 h-[290px]">test3</div>
+                <div class="bg-lime-500 h-[290px]">test4</div>
+                <div class="bg-lime-600 h-[290px]">test5</div>
+            </div>
+            <div class="">tetetet</div>
+         </div>
+        <!-- ./ content -->
+        
+    </div>
 </template>
