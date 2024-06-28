@@ -42,4 +42,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function canJoinRoom($roomId){
+
+        $granted = false;
+        $room = Room::findOrFail($roomId);
+        $users = explode(":", $room->users);
+        foreach($users as $id) {
+            if($this->id == $id) {
+                $granted = true;
+            }
+        } 
+
+        return $granted;
+    }
 }
