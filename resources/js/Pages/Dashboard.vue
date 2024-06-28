@@ -29,6 +29,8 @@ import { Head } from '@inertiajs/vue3';
         <div class="w-1/3 bg-white border-r border-gray-300 flex flex-col">
             <div class="p-4 border-b border-gray-300">
                 <h1 class="text-xl font-bold">Conversations</h1>
+                <hr class="my-4">
+                <input class="w-full rounded-full border-2" placeholder="pencarian..." type="text">
             </div>
             <div class="flex-grow overflow-y-auto">
                 <!-- Example conversation item -->

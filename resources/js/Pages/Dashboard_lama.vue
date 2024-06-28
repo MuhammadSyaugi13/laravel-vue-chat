@@ -4,7 +4,6 @@ import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
-    /* sd */
     <div class="flex h-screen overflow-hidden">
         <!-- sidebar -->
         <div class="w-1/4 bg-red-400">
