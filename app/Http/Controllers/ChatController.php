@@ -11,9 +11,12 @@ class ChatController extends Controller
 {
     public function index(Request $req)
     {
-        $data["friends"] = User::whereNot("id", auth()->user()->id)->get();
+        // $data["friends"] = User::whereNot("id", auth()->user()->id)->get();
+        
+        // return view("chat". $data);
 
-        return view("chat". $data);
+        $data = User::whereNot("id", auth()->user()->id)->get();
+        return $data;
     }
 
     public function saveMessage (Request $req) {
@@ -23,16 +26,16 @@ class ChatController extends Controller
 
         broadcast(new SendMessage($roomId, $userId, $message));
 
-        Message::created([
+        Message::create([
             "room_id" => $roomId,
-            "user_id" => $userId,
+            "user" => $userId,
             "message" => $message,
         ]);
 
         return "Message success stored";
     }
 
-    public function loadMessage ($roomId) {
+    public static function loadMessage ($roomId) {
         $message = Message::where('room_id', $roomId)->orderBy('updated_at', 'asc')->get();
         return $message;
     }

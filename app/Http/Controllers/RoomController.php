@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Http\Controllers\ChatController;
 use GuzzleHttp\Promise\Create;
 
 class RoomController extends Controller
@@ -22,6 +23,10 @@ class RoomController extends Controller
             ]);
         }
 
-        return $dataRoom;
+        // dd($dataRoom->id);
+
+        $dataMessage = ChatController::loadMessage($dataRoom->id);
+
+        return ["dataRoom" => $dataRoom, "dataMessage" => $dataMessage];
     }
 }
